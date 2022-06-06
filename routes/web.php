@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.kgb-data');
+    return view('pages.form-category');
 });
+
+Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
+
+Route::resource('dashboard/category', App\Http\Controllers\CategoryController::class);
+Route::resource('dashboard/employee', App\Http\Controllers\EmployeeController::class);
+Route::resource('dashboard/kgb', App\Http\Controllers\KgbController::class);
