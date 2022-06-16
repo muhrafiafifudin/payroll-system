@@ -33,6 +33,14 @@
                                 <input type="text" class="form-control" required placeholder="Type something"/>
                             </div>
                             <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="Type something"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Type something"/>
+                            </div>
+                            <div class="form-group">
                                 <label>NIP</label>
                                 <div>
                                     <input data-parsley-type="number" type="text"
@@ -41,18 +49,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
-                                <div>
-                                    <textarea required class="form-control" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Nomor Telepon</label>
-                                <div>
-                                    <input data-parsley-type="number" type="text"
-                                            class="form-control" required
-                                            placeholder="Enter only numbers"/>
-                                </div>
+                                <label>Pangkat</label>
+                                <input type="text" class="form-control" required placeholder="Type something"/>
                             </div>
                             <div class="form-group">
                                 <label>Jabatan</label>
@@ -70,7 +68,7 @@
                                             placeholder="Enter only numbers"/>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group mb-0">
                                 <div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">

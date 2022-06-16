@@ -13,12 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.form-category');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+// Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('dashboard');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    Route::resource('/dashboard/employee', App\Http\Controllers\EmployeeController::class);
+    Route::resource('/dashboard/kgb', App\Http\Controllers\KgbController::class);
 });
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index');
-
-Route::resource('dashboard/category', App\Http\Controllers\CategoryController::class);
-Route::resource('dashboard/employee', App\Http\Controllers\EmployeeController::class);
-Route::resource('dashboard/kgb', App\Http\Controllers\KgbController::class);
+require __DIR__.'/auth.php';

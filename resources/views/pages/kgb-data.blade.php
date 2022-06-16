@@ -32,7 +32,7 @@
                                 </p>
                             </div>
                             <div class="col-lg-4 text-right">
-                                <button type="button" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data</button>
+                                <a href="{{ route('kgb.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data</a>
                             </div>
                         </div>
 

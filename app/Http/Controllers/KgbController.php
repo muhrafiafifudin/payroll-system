@@ -23,7 +23,7 @@ class KgbController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.form-kgb-data');
     }
 
     /**

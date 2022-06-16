@@ -31,9 +31,15 @@
                                     Menampilkan semua jenis golongan yang ada
                                 </p>
                             </div>
-                            <div class="col-lg-4 text-right">
-                                <a href="{{ route('category.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Category</a>
-                            </div>
+
+                            @role('admin')
+                                <div class="col-lg-4 text-right">
+                                    <a href="{{ route('category.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Category</a>
+                                </div>
+                            @else
+                                    
+                            @endrole
+                        
                         </div>
 
                         <div class="table-responsive">
@@ -43,7 +49,13 @@
                                         <th>No</th>
                                         <th>Golongan</th>
                                         <th>Gaji Pokok</th>
-                                        <th>Keterangan</th>
+
+                                        @role('admin')
+                                            <th>Keterangan</th>
+                                        @else
+                                                
+                                        @endrole
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,15 +65,21 @@
                                             <th scope="row">{{ $no++ }}</th>
                                             <td>{{ $data->category }}</td>
                                             <td>{{ $data->salary }}</td>
-                                            <td>
-                                                <form action="{{ route('category.destroy', $data->id) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
 
-                                                    <a href="{{ route('category.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
-                                                    <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Are you sure ?')">Hapus</button>
-                                                </form>
-                                            </td>
+                                            @role('admin')
+                                                <td>
+                                                    <form action="{{ route('category.destroy', $data->id) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+
+                                                        <a href="{{ route('category.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
+                                                        <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Are you sure ?')">Hapus</button>
+                                                    </form>
+                                                </td>
+                                            @else
+                                                
+                                            @endrole
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

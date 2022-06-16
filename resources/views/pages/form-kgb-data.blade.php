@@ -36,38 +36,34 @@
                                     <option value="HI">Hawaii</option>
                                 </select>
                             </div>
+                            <p class="text-muted m-b-30">Atas Dasar Keputusan Surat Akhir Tentang Gaji / Pangkat</p>
                             <div class="form-group">
-                                <label>NIP</label>
-                                <div>
-                                    <input data-parsley-type="number" type="text"
-                                            class="form-control" readonly
-                                            placeholder="This place NIP"/>
+                                <label>Oleh Pejabat</label>
+                                <input type="text" class="form-control" readonly placeholder="This place position"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Tanggal Surat</label>
+                                        <input type="date" class="form-control" readonly placeholder="This place position"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Nomor Surat</label>
+                                        <input type="text" class="form-control" readonly placeholder="This place position"/>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Jabatan</label>
-                                <input type="text" class="form-control" readonly placeholder="This place position"/>
+                                <label>Berlakunya Gaji Lama</label>
+                                <input type="date" class="form-control" readonly placeholder="This place position"/>
                             </div>
                             <div class="form-group">
-                                <label>Kantor</label>
+                                <label>Masa Kerja Tanggal Tersebut</label>
                                 <input type="text" class="form-control" readonly placeholder="This place office"/>
                             </div>
-                            <div class="form-group">
-                                <label>Oleh Pejabat</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal / Nomor</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal Berlakunya Gaji Tersebut</label>
-                                <input type="date" class="form-control" required placeholder="Type something"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Masa Kerja Golongan Tanggal Tersebut</label>
-                                <input type="text" class="form-control" required placeholder="Type something"/>
-                            </div>
+                            <p class="text-muted m-b-30">Diberikan Gaji Berkala</p>
                             <div class="form-group">
                                 <label>Gaji Pokok Baru</label>
                                 <div>
@@ -88,7 +84,7 @@
                                 <label>Mulai Tanggal</label>
                                 <input type="date" class="form-control" required placeholder="Type something"/>
                             </div>
-                            
+
                             <div class="form-group mb-0">
                                 <div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
