@@ -31,9 +31,14 @@
                                     Menampilkan semua data kenaikan gaji berkala dari semua pegawai yang telah mendapatkannya
                                 </p>
                             </div>
-                            <div class="col-lg-4 text-right">
-                                <a href="{{ route('kgb.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data</a>
-                            </div>
+
+                            @role('admin')
+                                <div class="col-lg-4 text-right">
+                                    <a href="{{ route('kgb.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data</a>
+                                </div>
+                            @else
+
+                            @endrole
                         </div>
 
                         <div class="table-responsive">
@@ -59,17 +64,24 @@
                                             <td>IDR. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
                                             <td>{{ $data->golongan }}</td>
                                             <td>{{ $data->berlaku_gaji_baru }}</td>
-                                            <td>
-                                                <form action="{{ route('kgb.destroy', $data->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
 
-                                                    <a href="" class="btn btn-success waves-effect waves-light">Print</a>
+                                            @role('admin')
+                                                <td>
+                                                    <form action="{{ route('kgb.destroy', $data->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+
+                                                        <a href="{{ url('print-pdf/' . $data->id) }}" target="_blank" class="btn btn-success waves-effect waves-light">Print</a>
+                                                        <a href="" class="btn btn-warning waves-effect waves-light">View</a>
+                                                        <a href="{{ route('kgb.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
+                                                        <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
+                                                    </form>
+                                                </td>
+                                            @else
+                                                <td>
                                                     <a href="" class="btn btn-warning waves-effect waves-light">View</a>
-                                                    <a href="{{ route('kgb.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
-                                                    <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
-                                                </form>
-                                            </td>
+                                                </td>
+                                            @endrole
                                         </tr>
                                     @endforeach
                                 </tbody>

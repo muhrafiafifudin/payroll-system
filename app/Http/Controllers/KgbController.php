@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\KgbData;
 use Illuminate\Support\Facades\Redirect;
+use PDF;
 
 class KgbController extends Controller
 {
@@ -104,5 +105,19 @@ class KgbController extends Controller
         $kgb_data->delete();
 
         return redirect()->route('kgb.index');
+    }
+
+    public function generatePdf($id)
+    {
+        $kgb_data = KgbData::where('id', $id)->first();
+        $user = User::where('id', $kgb_data->id_user)->get();
+        $data = [
+            'data' => $kgb_data,
+            'user' => $user[0]
+        ];
+
+        $pdf = PDF::loadView('pages.print-pdf', $data);
+
+        return $pdf->download('itsolutionstuff.pdf');
     }
 }

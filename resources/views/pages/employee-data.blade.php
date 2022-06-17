@@ -31,9 +31,14 @@
                                     Menampilkan semua data pegawai yang berhak dan tidak untuk mendapatkan kenaikan gaji
                                 </p>
                             </div>
-                            <div class="col-lg-4 text-right">
-                                <a href="{{ route('employee.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data Pegawai</a>
-                            </div>
+
+                            @role('admin')
+                                <div class="col-lg-4 text-right">
+                                    <a href="{{ route('employee.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data Pegawai</a>
+                                </div>
+                            @else
+
+                            @endrole
                         </div>
 
                         <div class="table-responsive">
@@ -59,17 +64,23 @@
                                             <td>{{ $user->jabatan }}</td>
                                             <td>{{ $user->kantor }}</td>
                                             <td>{{ $user->status == 0 ? 'Tidak Aktif' : 'Aktif' }}</td>
-                                            <td>
-                                                <form action="{{ route('employee.destroy', $user->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
 
+                                            @role('admin')
+                                                <td>
+                                                    <form action="{{ route('employee.destroy', $user->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+
+                                                        <button type="button" class="btn btn-warning waves-effect waves-light">View</button>
+                                                        <a href="{{ route('employee.edit', $user->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
+                                                        <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
+                                                    </form>
+                                                </td>
+                                            @else
+                                                <td>
                                                     <button type="button" class="btn btn-warning waves-effect waves-light">View</button>
-                                                    <a href="{{ route('employee.edit', $user->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
-                                                    <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
-                                                </form>
-
-                                            </td>
+                                                </td>
+                                            @endrole
                                         </tr>
                                     @endforeach
                                 </tbody>
