@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\KgbData;
+use Illuminate\Support\Facades\Redirect;
 
 class KgbController extends Controller
 {
@@ -13,7 +16,9 @@ class KgbController extends Controller
      */
     public function index()
     {
-        return view('pages.kgb-data');
+        $kgb_data = KgbData::all();
+
+        return view('pages.kgb-data', compact('kgb_data'));
     }
 
     /**
@@ -23,7 +28,9 @@ class KgbController extends Controller
      */
     public function create()
     {
-        return view('pages.form-kgb-data');
+        $users = User::all();
+
+        return view('pages.form-kgb-data', compact('users'));
     }
 
     /**
@@ -34,7 +41,11 @@ class KgbController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        KgbData::create($data);
+
+        return redirect()->route('kgb.index');
     }
 
     /**
@@ -56,7 +67,12 @@ class KgbController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kgb_data = KgbData::findOrFail($id);
+
+        return view('pages.edit-kgb-data', [
+            'kgb_data' => $kgb_data,
+            'users' => User::all()
+        ]);
     }
 
     /**
@@ -68,7 +84,12 @@ class KgbController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $kgb_data = KgbData::findOrFail($id);
+        $kgb_data->update($data);
+
+        return redirect()->route('kgb.index');
     }
 
     /**
@@ -79,6 +100,9 @@ class KgbController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kgb_data = KgbData::findOrFail($id);
+        $kgb_data->delete();
+
+        return redirect()->route('kgb.index');
     }
 }

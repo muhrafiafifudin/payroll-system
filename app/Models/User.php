@@ -38,4 +38,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function kgb_data()
+    {
+        return $this->hasOne(KgbData::class);
+    }
 }

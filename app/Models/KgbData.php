@@ -9,13 +9,12 @@ class KgbData extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'employee_id',
-        'category_id',
-        'date',
-        'start_date_salary',
-        'year_of_services',
-        'new_salary',
-        'start_date'
-    ];
+    protected $table = 'kgb_data';
+
+    protected $guarded = [];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
 }

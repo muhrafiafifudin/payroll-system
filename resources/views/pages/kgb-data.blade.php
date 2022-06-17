@@ -50,18 +50,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Muhammad Rafi Afifudin</td>
-                                        <td>2.500.000</td>
-                                        <td>15.000.000</td>
-                                        <td>Golongan 1</td>
-                                        <td>1 Juni 2022</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info waves-effect waves-light">Edit</button>
-                                            <button type="button" class="btn btn-danger waves-effect waves-light">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    @php $no=1 @endphp
+                                    @foreach ($kgb_data as $data)
+                                        <tr>
+                                            <th scope="row">{{ $no++ }}</th>
+                                            <td>{{ $data->users->name }}</td>
+                                            <td>IDR. {{ number_format($data->users->gaji_pokok, 2, ',', '.') }}</td>
+                                            <td>IDR. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
+                                            <td>{{ $data->golongan }}</td>
+                                            <td>{{ $data->berlaku_gaji_baru }}</td>
+                                            <td>
+                                                <form action="{{ route('kgb.destroy', $data->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <a href="" class="btn btn-success waves-effect waves-light">Print</a>
+                                                    <a href="" class="btn btn-warning waves-effect waves-light">View</a>
+                                                    <a href="{{ route('kgb.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
+                                                    <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

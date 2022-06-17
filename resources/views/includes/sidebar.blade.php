@@ -11,9 +11,6 @@
                         <i class="mdi mdi-view-dashboard"></i><span>Dashboard</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('category.index') }}" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span>Golongan</span></a>
-                </li>
                 <li class="menu-title">Menu</li>
                 <li>
                     <a href="{{ route('employee.index') }}" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span>Data Pegawai</span></a>

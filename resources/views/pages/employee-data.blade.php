@@ -50,18 +50,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Muhammad Rafi Afifudin</td>
-                                        <td>3372020208000005</td>
-                                        <td>Sekretaris</td>
-                                        <td>RSUD Serengan</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info waves-effect waves-light">Edit</button>
-                                            <button type="button" class="btn btn-danger waves-effect waves-light">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    @php $no=1 @endphp
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <th scope="row">{{ $no++ }}</th>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->nip }}</td>
+                                            <td>{{ $user->jabatan }}</td>
+                                            <td>{{ $user->kantor }}</td>
+                                            <td>{{ $user->status == 0 ? 'Tidak Aktif' : 'Aktif' }}</td>
+                                            <td>
+                                                <form action="{{ route('employee.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="button" class="btn btn-warning waves-effect waves-light">View</button>
+                                                    <a href="{{ route('employee.edit', $user->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
+                                                    <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
+                                                </form>
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
