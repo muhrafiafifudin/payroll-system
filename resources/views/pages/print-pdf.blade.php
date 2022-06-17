@@ -21,7 +21,7 @@
             <td width="35%">
                 <table>
                     <tr>
-                        <td>Surakarta, 12 Desember 2021</td>
+                        <td>Surakarta, {{ $today }}</td>
                     </tr>
                     <tr>
                         <td><br></td>
@@ -50,7 +50,7 @@
                     <tr>
                         <td>Nomor</td>
                         <td>:</td>
-                        <td>12/RRI-SKA/SDM/XII/2021</td>
+                        <td>{{ $no_surat }}</td>
                     </tr>
                     <tr>
                         <td>Lampiran</td>
@@ -65,7 +65,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>A/n Sdr. Endang Retno Astuti</td>
+                        <td>A/n Sdr. {{ $user->name }}</td>
                     </tr>
                 </table>
             </td>
@@ -86,7 +86,7 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td colspan="4">Dengan ini diberitahukan bahwa, berhubung telah terpenuhinya masa kerja dan syarat-syarat lainnya kepada :</td>
+                        <td colspan="4" style="text-align: justify">Dengan ini diberitahukan bahwa, berhubung telah terpenuhinya masa kerja dan syarat-syarat lainnya kepada :</td>
                     </tr>
                     <tr>
                         <td colspan="4"><br></td>
@@ -142,13 +142,13 @@
                         <td style="text-align: right; padding-right: 0.5rem">b.</td>
                         <td>Tanggal / Nomor</td>
                         <td>:</td>
-                        <td>{{ $data->tanggal_gaji_lama . " / " . $data->nomor_gaji_lama }}</td>
+                        <td>{{ $tanggal_gaji_lama . " / " . $data->nomor_gaji_lama }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">c.</td>
                         <td>Tgl mulai berlakunya gaji tersebut</td>
                         <td>:</td>
-                        <td>{{ $data->berlaku_gaji_lama }}</td>
+                        <td>{{ $berlaku_gaji_lama  }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">d.</td>
@@ -160,8 +160,8 @@
                         <td colspan="4"><br></td>
                     </tr>
                     <tr>
-                        <td colspan="4">
-                            DIBERIKAN GAJI BERKALA HINGGA MEMPEROLEH :
+                        <td colspan="4" style="text-align: center">
+                            <ins>DIBERIKAN GAJI BERKALA HINGGA MEMPEROLEH :</ins>
                         </td>
                     </tr>
                     <tr>
@@ -189,13 +189,13 @@
                         <td style="text-align: right; padding-right: 0.5rem">9.</td>
                         <td>Mulai Tanggal</td>
                         <td>:</td>
-                        <td>{{ $data->berlaku_gaji_baru }}</td>
+                        <td>{{ $berlaku_gaji_baru }}</td>
                     </tr>
                     <tr>
                         <td colspan="4"><br></td>
                     </tr>
                     <tr>
-                        <td colspan="4">
+                        <td colspan="4" style="text-align: justify">
                             Diharap agar sesuai dengan {{ $data->nomor_pp }} kepada Pegawai tersebut dapat dibayarkan penghasilan berdasarkan Gaji Pokok yang baru
                         </td>
                     </tr>

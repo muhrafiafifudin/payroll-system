@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\KgbData;
 use Illuminate\Support\Facades\Redirect;
 use PDF;
+use Carbon\Carbon;
 
 class KgbController extends Controller
 {
@@ -109,11 +110,33 @@ class KgbController extends Controller
 
     public function generatePdf($id)
     {
+        setlocale(LC_TIME, 'id_ID');
+        \Carbon\Carbon::setLocale('id');
+
+        $today = Carbon::now()->isoFormat('D MMMM Y');
+        $tahun = Carbon::now()->isoFormat('Y');
+
+        $array_bln = array(1=>"I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII");
+        $bulan = $array_bln[date('n')];
+
+        $noUrutAkhir = KgbData::max('id');
+
         $kgb_data = KgbData::where('id', $id)->first();
+        $tanggal_gaji_lama = Carbon::parse($kgb_data->tanggal_gaji_lama)->translatedFormat('d F Y');
+        $berlaku_gaji_lama = Carbon::parse($kgb_data->berlaku_gaji_lama)->translatedFormat('d F Y');
+        $berlaku_gaji_baru = Carbon::parse($kgb_data->berlaku_gaji_baru)->translatedFormat('d F Y');
+
+        $no_surat = sprintf("%03s", abs($noUrutAkhir + 1)) . '/RRI-SKA/SDM/' . $bulan . '/' . $tahun;
+
         $user = User::where('id', $kgb_data->id_user)->get();
         $data = [
+            'no_surat' => $no_surat,
+            'today' => $today,
             'data' => $kgb_data,
-            'user' => $user[0]
+            'user' => $user[0],
+            'tanggal_gaji_lama' => $tanggal_gaji_lama,
+            'berlaku_gaji_lama' => $berlaku_gaji_lama,
+            'berlaku_gaji_baru' => $berlaku_gaji_baru
         ];
 
         $pdf = PDF::loadView('pages.print-pdf', $data);
