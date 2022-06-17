@@ -119,14 +119,12 @@ class KgbController extends Controller
         $array_bln = array(1=>"I","II","III", "IV", "V","VI","VII","VIII","IX","X", "XI","XII");
         $bulan = $array_bln[date('n')];
 
-        $noUrutAkhir = KgbData::max('id');
-
         $kgb_data = KgbData::where('id', $id)->first();
         $tanggal_gaji_lama = Carbon::parse($kgb_data->tanggal_gaji_lama)->translatedFormat('d F Y');
         $berlaku_gaji_lama = Carbon::parse($kgb_data->berlaku_gaji_lama)->translatedFormat('d F Y');
         $berlaku_gaji_baru = Carbon::parse($kgb_data->berlaku_gaji_baru)->translatedFormat('d F Y');
 
-        $no_surat = sprintf("%03s", abs($noUrutAkhir + 1)) . '/RRI-SKA/SDM/' . $bulan . '/' . $tahun;
+        $no_surat = sprintf("%03s", $kgb_data->id) . '/RRI-SKA/SDM/' . $bulan . '/' . $tahun;
 
         $user = User::where('id', $kgb_data->id_user)->get();
         $data = [
