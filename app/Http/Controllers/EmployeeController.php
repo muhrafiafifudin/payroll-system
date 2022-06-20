@@ -64,7 +64,9 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_details = User::find($id);
+
+        return view('pages.employee-modal-view', compact('user_details'));
     }
 
     /**

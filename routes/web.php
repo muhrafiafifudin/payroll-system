@@ -17,20 +17,26 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
-// Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->middleware(['auth'])->name('dashboard');
-
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     // Route Data Pegawai
-    Route::resource('/dashboard/employee', App\Http\Controllers\EmployeeController::class);
+    Route::get('dashboard/employee', 'App\Http\Controllers\EmployeeController@index')->name('employee.index');
+    Route::post('dashboard/employee', 'App\Http\Controllers\EmployeeController@store')->name('employee.store')->middleware('role:admin');
+    Route::get('dashboard/employee/create', 'App\Http\Controllers\EmployeeController@create')->name('employee.create')->middleware('role:admin');
+    Route::get('dashboard/employee/{employee}', 'App\Http\Controllers\EmployeeController@show')->name('employee.show');
+    Route::put('dashboard/employee/{employee}', 'App\Http\Controllers\EmployeeController@update')->name('employee.update')->middleware('role:admin');
+    Route::delete('dashboard/employee/{employee}', 'App\Http\Controllers\EmployeeController@destroy')->name('employee.destroy')->middleware('role:admin');
+    Route::get('dashboard/employee/{employee}/edit', 'App\Http\Controllers\EmployeeController@edit')->name('employee.edit')->middleware('role:admin');
     // Route Data Kenaikan Gaji Pegawai
-    Route::resource('/dashboard/kgb', App\Http\Controllers\KgbController::class);
+    Route::get('dashboard/kgb', 'App\Http\Controllers\KgbController@index')->name('kgb.index');
+    Route::post('dashboard/kgb', 'App\Http\Controllers\KgbController@store')->name('kgb.store')->middleware('role:admin');
+    Route::get('dashboard/kgb/create', 'App\Http\Controllers\KgbController@create')->name('kgb.create')->middleware('role:admin');
+    Route::get('dashboard/kgb/{kgb}', 'App\Http\Controllers\KgbController@show')->name('kgb.show');
+    Route::put('dashboard/kgb/{kgb}', 'App\Http\Controllers\KgbController@update')->name('kgb.update')->middleware('role:admin');
+    Route::delete('dashboard/kgb/{kgb}', 'App\Http\Controllers\KgbController@destroy')->name('kgb.destroy')->middleware('role:admin');
+    Route::get('dashboard/kgb/{kgb}/edit', 'App\Http\Controllers\KgbController@edit')->name('kgb.edit')->middleware('role:admin');
     // Route DOM PDF
-    Route::get('print-pdf/{id}', 'App\Http\Controllers\KgbController@generatePdf');
+    Route::get('print-pdf/{id}', 'App\Http\Controllers\KgbController@generatePdf')->middleware('role:admin');
 });
 
 require __DIR__.'/auth.php';

@@ -71,20 +71,40 @@
                                                         @csrf
                                                         @method('DELETE')
 
-                                                        <button type="button" class="btn btn-warning waves-effect waves-light">View</button>
+                                                        <button type="button" class="btn btn-warning waves-effect waves-light" data-toggle="modal" data-target="#myModal">View</button>
                                                         <a href="{{ route('employee.edit', $user->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
                                                         <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
                                                     </form>
                                                 </td>
                                             @else
                                                 <td>
-                                                    <button type="button" class="btn btn-warning waves-effect waves-light">View</button>
+                                                    <button type="button" class="btn btn-warning waves-effect waves-light" data-toggle="modal" data-target="#viewModal">View</button>
                                                 </td>
                                             @endrole
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+
+                            <!-- sample modal content -->
+                            <div id="viewModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title mt-0" id="myModalLabel">Daftar Data Pegawai</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+
                         </div>
                     </div>
                 </div>
