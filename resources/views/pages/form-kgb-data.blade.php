@@ -12,8 +12,8 @@
                 <div class="page-title-box">
                     <h4 class="page-title">Tambah Data KGB</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Data KGB</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('kgb.index') }}">Data KGB</a></li>
                         <li class="breadcrumb-item active">Tambah Data KGB</li>
                     </ol>
                 </div>

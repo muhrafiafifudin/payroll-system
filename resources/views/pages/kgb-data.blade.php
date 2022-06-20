@@ -12,7 +12,7 @@
                 <div class="page-title-box">
                     <h4 class="page-title">Data Kenaikan Gaji Berkala</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Data KGB</li>
                     </ol>
                 </div>

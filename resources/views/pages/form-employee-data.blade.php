@@ -12,8 +12,8 @@
                 <div class="page-title-box">
                     <h4 class="page-title">Tambah Data Pegawai</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Data Pegawai</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('employee.index') }}">Data Pegawai</a></li>
                         <li class="breadcrumb-item active">Tambah Data Pegawai</li>
                     </ol>
                 </div>
@@ -75,6 +75,14 @@
                                             class="form-control" required
                                             placeholder="Masukkan Gaji Pokok ..."/>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Status</label>
+                                <select class="form-control select2" name="status">
+                                    <option>Select</option>
+                                    <option value="0">Tidak Dapat KGB</option>
+                                    <option value="1">Dapat KGB</option>
+                                </select>
                             </div>
 
                             <div class="form-group mb-0">

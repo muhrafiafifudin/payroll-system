@@ -10,11 +10,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Tambah Data Pegawai</h4>
+                    <h4 class="page-title">Edit Data Pegawai</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Data Pegawai</a></li>
-                        <li class="breadcrumb-item active">Tambah Data Pegawai</li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('employee.index') }}">Data Pegawai</a></li>
+                        <li class="breadcrumb-item active">Edit Data Pegawai</li>
                     </ol>
                 </div>
             </div>
@@ -72,6 +72,13 @@
                                             class="form-control" required value="{{ $users->gaji_pokok }}"
                                             placeholder="Masukkan Gaji Pokok ..."/>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Status</label>
+                                <select class="form-control select2" name="status">
+                                    <option value="0" {{ $users->status == 0 ? ' selected' : '' }}>Tidak Dapat KGB</option>
+                                    <option value="1" {{ $users->status == 1 ? ' selected' : '' }}>Dapat KGB</option>
+                                </select>
                             </div>
 
                             <div class="form-group mb-0">

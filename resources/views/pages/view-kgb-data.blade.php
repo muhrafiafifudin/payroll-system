@@ -10,11 +10,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Tambah Data KGB</h4>
+                    <h4 class="page-title">Lihat Data KGB</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Data KGB</a></li>
-                        <li class="breadcrumb-item active">Tambah Data KGB</li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('kgb.index') }}">Data KGB</a></li>
+                        <li class="breadcrumb-item active">Lihat Data KGB</li>
                     </ol>
                 </div>
             </div>
@@ -25,8 +25,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Form Tambah Data KGB</h4>
-                        <p class="text-muted m-b-30">Penambahan Data Kenaikan Gaji Berkala Untuk Semua Pegawai Yang erhak Mendapatkannya</p>
+                        <h4 class="mt-0 header-title">Detail Data KGB</h4>
+                        <p class="text-muted m-b-30">Menampilkan Detail Data Kenaikan Gaji Pegawai</p>
                         <div class="form-group">
                             <label class="control-label">Nama Pegawai</label>
                             <select class="form-control select2" name="id_user" disabled>

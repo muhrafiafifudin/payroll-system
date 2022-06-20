@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('jabatan')->nullable();
             $table->string('kantor')->nullable();
             $table->string('gaji_pokok')->nullable();
-            $table->integer('status')->default(0);
+            $table->tinyInteger('status')->default(0)->comment('0 untuk Tidak Dapat KGB & 1 untuk Dapat KGB');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

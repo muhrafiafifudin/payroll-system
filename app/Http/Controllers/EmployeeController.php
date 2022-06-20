@@ -91,15 +91,10 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
+
         $users = User::findOrFail($id);
-        $users->name = $request->input('name');
-        $users->email = $request->input('email');
-        $users->nip = $request->input('nip');
-        $users->pangkat = $request->input('pangkat');
-        $users->jabatan = $request->input('jabatan');
-        $users->kantor = $request->input('kantor');
-        $users->gaji_pokok = $request->input('gaji_pokok');
-        $users->save();
+        $users->update($data);
 
         return redirect()->route('employee.index');
     }

@@ -10,11 +10,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Tambah Data Pegawai</h4>
+                    <h4 class="page-title">Lihat Data Pegawai</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Data Pegawai</a></li>
-                        <li class="breadcrumb-item active">Tambah Data Pegawai</li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('employee.index') }}">Data Pegawai</a></li>
+                        <li class="breadcrumb-item active">Lihat Data Pegawai</li>
                     </ol>
                 </div>
             </div>
@@ -25,8 +25,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Form Edit Data Pegawai</h4>
-                        <p class="text-muted m-b-30">Edit Data Pegawai</p>
+                        <h4 class="mt-0 header-title">Detail Data Pegawai</h4>
+                        <p class="text-muted m-b-30">Menampilkan Detail Data Pegawai</p>
                         <form action="{{ route('employee.update', $users->id) }}" method="post">
                             @csrf
                             @method('PUT')
@@ -73,7 +73,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Status Kenaikan Gaji</label>
-                                <input type="text" class="form-control" name="kantor" value="{{ $users->status == 0 ? 'Tidak Dapat' : 'Dapat' }}" disabled />
+                                <input type="text" class="form-control" name="kantor" value="{{ $users->status == 0 ? 'Tidak Dapat KGB' : 'Dapat KGB' }}" disabled />
                             </div>
 
                             <div class="form-group mb-0">

@@ -4,11 +4,8 @@
     <div class="topbar-left">
         <a href="index.html" class="logo">
             <span>
-                <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="18">
+                <img src="{{ asset('assets/images/rri-logo.png') }}" alt="" height="80">
             </span>
-            <i>
-                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
-            </i>
         </a>
     </div>
 
@@ -17,11 +14,11 @@
         <ul class="navbar-right d-flex list-inline float-right mb-0">
             <li class="dropdown notification-list d-none d-sm-block">
                 <form role="search" class="app-search">
-                    <div class="form-group mb-0"> 
+                    <div class="form-group mb-0">
                         <input type="text" class="form-control" placeholder="Search..">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </div>
-                </form> 
+                </form>
             </li>
 
             <li class="dropdown notification-list">
@@ -40,9 +37,9 @@
                             @csrf
 
                             <button class="dropdown-item text-danger" type="submit"><i class="mdi mdi-power text-danger"></i>Logout</button>
-                        
+
                         </form>
-                    </div>                                                                    
+                    </div>
                 </div>
             </li>
 

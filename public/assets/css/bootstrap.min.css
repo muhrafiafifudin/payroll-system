@@ -15,4 +15,11 @@
     text-align: center;
 }
 
+.topbar .topbar-left img {
+    margin-top: 1rem;
+}
+
+ul#side-menu {
+    margin-top: 3rem;
+}
 /*# sourceMappingURL=bootstrap.min.css.map */

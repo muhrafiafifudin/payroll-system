@@ -12,7 +12,7 @@
                 <div class="page-title-box">
                     <h4 class="page-title">Data Pegawai</h4>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Data Pegawai</li>
                     </ol>
                 </div>
@@ -63,7 +63,7 @@
                                             <td>{{ $user->nip }}</td>
                                             <td>{{ $user->jabatan }}</td>
                                             <td>{{ $user->kantor }}</td>
-                                            <td>{{ $user->status == 0 ? 'Tidak Aktif' : 'Aktif' }}</td>
+                                            <td>{{ $user->status == 0 ? 'Tidak Dapat KGB' : 'Dapat KGB' }}</td>
 
                                             @role('admin')
                                                 <td>
