@@ -58,7 +58,12 @@ class KgbController extends Controller
      */
     public function show($id)
     {
-        //
+        $kgb_data = KgbData::find($id);
+
+        return view('pages.view-kgb-data', [
+            'kgb_data' => $kgb_data,
+            'users' => User::all()
+        ]);
     }
 
     /**

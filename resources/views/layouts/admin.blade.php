@@ -28,7 +28,7 @@
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="content-page">
-                
+
                 <!-- content -->
                 @yield('content')
                 <!-- end content -->
@@ -36,15 +36,17 @@
                 <!-- footer -->
                 @include('includes.footer')
                 <!-- end footer -->
-                
-            </div>  
+
+            </div>
             <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
 
         </div>
         <!-- END wrapper -->
-            
+
+        @yield('scripts')
+
         @include('includes.script')
     </body>
 </html>

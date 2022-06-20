@@ -72,14 +72,14 @@
                                                         @method('DELETE')
 
                                                         <a href="{{ url('print-pdf/' . $data->id) }}" target="_blank" class="btn btn-success waves-effect waves-light">Print</a>
-                                                        <a href="" class="btn btn-warning waves-effect waves-light">View</a>
+                                                        <a href="{{ route('kgb.show', $data->id) }}" class="btn btn-warning waves-effect waves-light">View</a>
                                                         <a href="{{ route('kgb.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
                                                         <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>
                                                     </form>
                                                 </td>
                                             @else
                                                 <td>
-                                                    <a href="" class="btn btn-warning waves-effect waves-light">View</a>
+                                                    <a href="{{ route('kgb.show', $data->id) }}" class="btn btn-warning waves-effect waves-light">View</a>
                                                 </td>
                                             @endrole
                                         </tr>
