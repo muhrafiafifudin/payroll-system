@@ -35,6 +35,7 @@
                             @role('admin')
                                 <div class="col-lg-4 text-right">
                                     <a href="{{ route('kgb.create') }}" class="btn btn-success waves-effect waves-light"><i class="ion-plus"></i> &nbsp Tambah Data</a>
+                                    <a href="{{ url('print-pdf') }}" target="_blank" class="btn btn-primary waves-effect waves-light">Print Semua</a>
                                 </div>
                             @else
 
@@ -71,7 +72,7 @@
                                                         @csrf
                                                         @method('DELETE')
 
-                                                        <a href="{{ url('print-pdf/' . $data->id) }}" target="_blank" class="btn btn-success waves-effect waves-light">Print</a>
+                                                        <a href="{{ url('print-pdf/' . $data->id) }}" target="_blank" class="btn btn-primary waves-effect waves-light">Print</a>
                                                         <a href="{{ route('kgb.show', $data->id) }}" class="btn btn-warning waves-effect waves-light">View</a>
                                                         <a href="{{ route('kgb.edit', $data->id) }}" class="btn btn-info waves-effect waves-light">Edit</a>
                                                         <button type="submit" class="btn btn-danger waves-effect waves-light" onclick="return confirm('Anda Yakin ?')">Hapus</button>

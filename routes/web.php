@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('dashboard/kgb/{kgb}/edit', 'App\Http\Controllers\KgbController@edit')->name('kgb.edit')->middleware('role:admin');
     // Route DOM PDF
     Route::get('print-pdf/{id}', 'App\Http\Controllers\KgbController@generatePdf')->middleware('role:admin');
+    Route::get('print-pdf', 'App\Http\Controllers\KgbController@generatePdf_All')->middleware('role:admin');
 });
 
 require __DIR__.'/auth.php';

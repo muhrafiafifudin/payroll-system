@@ -55,7 +55,7 @@
                     <tr>
                         <td>Lampiran</td>
                         <td>:</td>
-                        <td></td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td>Perihal</td>
@@ -119,7 +119,7 @@
                         <td style="text-align: right; padding-right: 0.5rem">5.</td>
                         <td>Gaji Pokok</td>
                         <td>:</td>
-                        <td>{{ $user->gaji_pokok }}</td>
+                        <td>Rp. {{ number_format($user->gaji_pokok, 2, ',', '.') }}</td>
                     </tr>
                     <tr>
                         <td colspan="4"><br></td>
@@ -171,7 +171,7 @@
                         <td style="text-align: right; padding-right: 0.5rem">6.</td>
                         <td>Gaji Pokok Baru</td>
                         <td>:</td>
-                        <td>{{ $data->gaji_pokok_baru }}</td>
+                        <td>Rp. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
                     </tr>
                     <tr>
                         <td style="text-align: right; padding-right: 0.5rem">7.</td>

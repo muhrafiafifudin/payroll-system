@@ -146,4 +146,16 @@ class KgbController extends Controller
 
         return $pdf->download('itsolutionstuff.pdf');
     }
+
+    public function generatePdf_All()
+    {
+        $kgb_data = KgbData::all();
+
+        // dd($kgb_data);
+
+        $view = view('pages.print-pdf-all', compact('kgb_data'));
+        $html = $view->render();
+        $pdf = PDF::loadHTML($html)->setPaper('a4', 'potrait');
+        return $pdf->stream('sugeneruoti.pdf');
+    }
 }
