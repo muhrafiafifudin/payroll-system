@@ -17,7 +17,7 @@ class EmployeeController extends Controller
     {
         $users = User::all();
 
-        return view('pages.employee-data', compact('users'));
+        return view('pages.employee.employee-data', compact('users'));
     }
 
     /**
@@ -27,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('pages.form-employee-data');
+        return view('pages.employee.form-employee-data');
     }
 
     /**
@@ -66,7 +66,7 @@ class EmployeeController extends Controller
     {
         $users = User::find($id);
 
-        return view('pages.view-employee-data', compact('users'));
+        return view('pages.employee.view-employee-data', compact('users'));
     }
 
     /**
@@ -79,7 +79,7 @@ class EmployeeController extends Controller
     {
         $users = User::findOrFail($id);
 
-        return view('pages.edit-employee-data', compact('users'));
+        return view('pages.employee.edit-employee-data', compact('users'));
     }
 
     /**

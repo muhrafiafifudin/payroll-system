@@ -22,7 +22,7 @@ class KgbController extends Controller
         $kgb_data = KgbData::all();
         $kgb_data_personal = KgbData::where('id_user', Auth::id());
 
-        return view('pages.kgb-data', compact('kgb_data', 'kgb_data_personal'));
+        return view('pages.kgb.kgb-data', compact('kgb_data', 'kgb_data_personal'));
     }
 
     /**
@@ -34,7 +34,7 @@ class KgbController extends Controller
     {
         $users = User::all();
 
-        return view('pages.form-kgb-data', compact('users'));
+        return view('pages.kgb.form-kgb-data', compact('users'));
     }
 
     /**
@@ -62,7 +62,7 @@ class KgbController extends Controller
     {
         $kgb_data = KgbData::find($id);
 
-        return view('pages.view-kgb-data', [
+        return view('pages.kgb.view-kgb-data', [
             'kgb_data' => $kgb_data,
             'users' => User::all()
         ]);
@@ -78,7 +78,7 @@ class KgbController extends Controller
     {
         $kgb_data = KgbData::findOrFail($id);
 
-        return view('pages.edit-kgb-data', [
+        return view('pages.kgb.edit-kgb-data', [
             'kgb_data' => $kgb_data,
             'users' => User::all()
         ]);
@@ -144,7 +144,7 @@ class KgbController extends Controller
             'berlaku_gaji_baru' => $berlaku_gaji_baru
         ];
 
-        $pdf = PDF::loadView('pages.print-pdf', $data);
+        $pdf = PDF::loadView('pages.report.print-pdf', $data);
 
         return $pdf->download('itsolutionstuff.pdf');
     }
@@ -155,7 +155,7 @@ class KgbController extends Controller
 
         // dd($kgb_data);
 
-        $view = view('pages.print-pdf-all', compact('kgb_data'));
+        $view = view('pages.report.print-pdf-all', compact('kgb_data'));
         $html = $view->render();
         $pdf = PDF::loadHTML($html)->setPaper('a4', 'potrait');
         return $pdf->stream('sugeneruoti.pdf');
