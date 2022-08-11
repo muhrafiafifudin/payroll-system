@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Models\KgbData;
-use Illuminate\Support\Facades\Redirect;
 use PDF;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\KgbData;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class KgbController extends Controller
 {
@@ -19,8 +20,9 @@ class KgbController extends Controller
     public function index()
     {
         $kgb_data = KgbData::all();
+        $kgb_data_personal = KgbData::where('id_user', Auth::id());
 
-        return view('pages.kgb-data', compact('kgb_data'));
+        return view('pages.kgb-data', compact('kgb_data', 'kgb_data_personal'));
     }
 
     /**
