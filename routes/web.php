@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    // Route Golongan
+    Route::resource('dashboard/category', CategoryController::class);
     // Route Data Pegawai
     Route::get('dashboard/employee', 'App\Http\Controllers\EmployeeController@index')->name('employee.index');
     Route::post('dashboard/employee', 'App\Http\Controllers\EmployeeController@store')->name('employee.store')->middleware('role:admin');

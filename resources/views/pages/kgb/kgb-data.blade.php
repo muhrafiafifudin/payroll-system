@@ -107,8 +107,8 @@
                                             <tr>
                                                 <td scope="row">{{ $no++ }}</td>
                                                 <td>{{ $data->users->name }}</td>
-                                                <td>IDR. {{ number_format($data->users->gaji_pokok, 2, ',', '.') }}</td>
-                                                <td>IDR. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($data->users->gaji_pokok, 2, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->berlaku_gaji_baru }}</td>
                                                 <td>

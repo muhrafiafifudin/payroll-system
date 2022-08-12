@@ -14,9 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $category = Category::all();
 
-        return view('pages.category.category', compact('categories'));
+        return view('pages.category', compact('category'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('pages.category.form-category');
+        return view('pages.form-category');
     }
 
     /**
@@ -37,8 +37,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        Category::create($data);
+        $request->validate([
+            'category'  => 'required',
+            'salary'    => 'required'
+        ]);
+
+        Category::create([
+            'category' => $request->category,
+            'salary' => $request->salary,
+        ]);
 
         return redirect()->route('category.index');
     }
@@ -51,9 +58,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $categories = Category::find($id);
-
-        return view('pages.category.view-category', compact('categories'));
+        //
     }
 
     /**
@@ -64,9 +69,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('pages.category.edit-category', compact('categories'));
+        return view('pages.edit-category', compact('category'));
     }
 
     /**
@@ -78,11 +83,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        $categories = Category::findOrFail($id);
-        $categories->update($data);
-
+        $category = Category::findOrFail($id);
+        $category->category = $request->category;
+        $category->salary = $request->salary;
+        $category->save();
         return redirect()->route('category.index');
     }
 
@@ -94,9 +98,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $categories = Category::findOrFail($id);
-        $categories->delete();
-
+        $category = Category::findOrFail($id);
+        $category->delete();
+        
         return redirect()->route('category.index');
     }
 }

@@ -104,7 +104,7 @@
                             <div class="form-group mb-0">
                                 <div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
-                                        Submit
+                                        Simpan
                                     </button>
                                     <a href="{{ route('kgb.index') }}" class="btn btn-secondary waves-effect">Cancel</a>
                                 </div>

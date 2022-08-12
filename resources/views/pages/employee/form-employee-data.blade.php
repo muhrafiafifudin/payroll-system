@@ -88,7 +88,7 @@
                             <div class="form-group mb-0">
                                 <div>
                                     <button type="submit" class="btn btn-primary waves-effect waves-light mr-1">
-                                        Submit
+                                        Simpan
                                     </button>
                                     <button type="reset" class="btn btn-secondary waves-effect">
                                         Cancel
