@@ -58,9 +58,9 @@
                                             <tr>
                                                 <th scope="row">{{ $no++ }}</th>
                                                 <td>{{ $data->users->name }}</td>
-                                                <td>IDR. {{ number_format($data->users->gaji_pokok, 2, ',', '.') }}</td>
-                                                <td>IDR. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
-                                                <td>{{ $data->golongan }}</td>
+                                                <td>Rp. {{ number_format($data->users->categories->salary, 2, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
+                                                <td>{{ $data->categories->category }}/{{ $data->categories->class }}</td>
                                                 <td>{{ $data->berlaku_gaji_baru }}</td>
                                                 <td>
                                                     <form action="{{ route('kgb.destroy', $data->id) }}" method="POST">
@@ -107,8 +107,8 @@
                                             <tr>
                                                 <td scope="row">{{ $no++ }}</td>
                                                 <td>{{ $data->users->name }}</td>
-                                                <td>Rp. {{ number_format($data->users->gaji_pokok, 2, ',', '.') }}</td>
-                                                <td>Rp. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($data->users->categories->salary, 2, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->berlaku_gaji_baru }}</td>
                                                 <td>

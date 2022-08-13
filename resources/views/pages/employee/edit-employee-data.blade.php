@@ -66,18 +66,34 @@
                                 <input type="text" class="form-control" name="kantor" value="{{ $users->kantor }}" required placeholder="Masukkan Kantor ..."/>
                             </div>
                             <div class="form-group">
-                                <label>Gaji Pokok</label>
-                                <div>
-                                    <input data-parsley-type="number" type="text" name="gaji_pokok"
-                                            class="form-control" required value="{{ $users->gaji_pokok }}"
-                                            placeholder="Masukkan Gaji Pokok ..."/>
+                                <label>Oleh Pejabat</label>
+                                <input type="text" class="form-control" name="pejabat_lama" value="{{ $users->pejabat_lama }}" required placeholder="Masukkan Nama Pejabat Surat Lama ..."/>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Tanggal Surat</label>
+                                        <input type="date" class="form-control" name="tanggal_gaji_lama" value="{{ $users->tanggal_gaji_lama }}" required placeholder="Masukkan Tanggal Surat Lama ..."/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Nomor Surat</label>
+                                        <input type="text" class="form-control" name="nomor_gaji_lama" value="{{ $users->nomor_gaji_lama }}" required placeholder="Masukkan Nomor Surat Lama ..."/>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Status</label>
-                                <select class="form-control select2" name="status">
-                                    <option value="0" {{ $users->status == 0 ? ' selected' : '' }}>Tidak Dapat KGB</option>
-                                    <option value="1" {{ $users->status == 1 ? ' selected' : '' }}>Dapat KGB</option>
+                                <label>Berlakunya Gaji Lama</label>
+                                <input type="date" class="form-control" name="berlaku_gaji_lama" value="{{ $users->berlaku_gaji_lama }}" required placeholder="Masukkan Berlaku Gaji Lama ..."/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Golongan / Gaji Pokok</label>
+                                <select class="form-control select2" name="id_category" required>
+                                    <option value="">Select</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" {{ $category->id == $users->id_category ? 'selected' : '' }}>{{ $category->category }}/{{ $category->class }} || Rp. {{ number_format($category->salary, 2, ',', '.') }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

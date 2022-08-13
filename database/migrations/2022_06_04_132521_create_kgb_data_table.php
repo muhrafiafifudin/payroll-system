@@ -16,14 +16,7 @@ class CreateKgbDataTable extends Migration
         Schema::create('kgb_data', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('id_user');
-            $table->string('pejabat_lama');
-            $table->date('tanggal_gaji_lama');
-            $table->string('nomor_gaji_lama');
-            $table->date('berlaku_gaji_lama');
-            $table->string('masa_kerja_gaji_lama');
-            $table->integer('gaji_pokok_baru');
-            $table->string('masa_kerja_gaji_baru');
-            $table->string('golongan');
+            $table->tinyInteger('id_category')->nullable();
             $table->date('berlaku_gaji_baru');
             $table->string('nomor_pp');
             $table->string('mengetahui');

@@ -41,52 +41,15 @@
                                 </select>
                             </div>
 
-
                             <br><br>
                             <div class="form-group">
-                                <label>Oleh Pejabat</label>
-                                <input type="text" class="form-control" name="pejabat_lama" value="{{ $kgb_data->pejabat_lama }}" required placeholder="Masukkan Nama Pejabat Surat Lama ..."/>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label>Tanggal Surat</label>
-                                        <input type="date" class="form-control" name="tanggal_gaji_lama" value="{{ $kgb_data->tanggal_gaji_lama }}" required placeholder="Masukkan Tanggal Surat Lama ..."/>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label>Nomor Surat</label>
-                                        <input type="text" class="form-control" name="nomor_gaji_lama" value="{{ $kgb_data->nomor_gaji_lama }}" required placeholder="Masukkan Nomor Surat Lama ..."/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Berlakunya Gaji Lama</label>
-                                <input type="date" class="form-control" name="berlaku_gaji_lama" value="{{ $kgb_data->berlaku_gaji_lama }}" required placeholder="Masukkan Berlaku Gaji Lama ..."/>
-                            </div>
-                            <div class="form-group">
-                                <label>Masa Kerja Tanggal Tersebut</label>
-                                <input type="text" class="form-control" name="masa_kerja_gaji_lama" value="{{ $kgb_data->masa_kerja_gaji_lama }}" required placeholder="Masukkan Masa Kerja Gaji Lama ..."/>
-                            </div>
-
-
-                            <br><br>
-                            <div class="form-group">
-                                <label>Gaji Pokok Baru</label>
-                                <div>
-                                    <input data-parsley-type="number" type="text"
-                                            class="form-control" value="{{ $kgb_data->gaji_pokok_baru }}" required name="gaji_pokok_baru"
-                                            placeholder="Masukkan Gaji Pokok Baru ..."/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Berdasarkan Masa Kerja</label>
-                                <input type="text" class="form-control" name="masa_kerja_gaji_baru" value="{{ $kgb_data->masa_kerja_gaji_baru }}" required placeholder="Masukkan Masa Kerja Gaji Baru ..."/>
-                            </div>
-                            <div class="form-group">
-                                <label>Dalam Golongan</label>
-                                <input type="text" class="form-control" name="golongan" value="{{ $kgb_data->golongan }}" required placeholder="Masukkan Golongan ..."/>
+                                <label class="control-label">Golongan / Gaji Pokok / Masa Kerja</label>
+                                <select class="form-control select2" name="id_category">
+                                    <option>Select</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" {{ $category->id == $kgb_data->id_category ? ' selected' : '' }}>{{ $category->category }}/{{ $category->class }} || Rp. {{ number_format($category->salary, 2, ',', '.') }} || {{ $category->mkg }} Tahun</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Mulai Tanggal</label>

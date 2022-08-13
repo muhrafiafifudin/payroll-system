@@ -17,4 +17,9 @@ class KgbData extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'id_category');
+    }
 }

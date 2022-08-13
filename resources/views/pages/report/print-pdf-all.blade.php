@@ -126,7 +126,7 @@
                             <td style="text-align: right; padding-right: 0.5rem">5.</td>
                             <td>Gaji Pokok</td>
                             <td>:</td>
-                            <td>Rp. {{ number_format($data->users->gaji_pokok, 2, ',', '.') }}</td>
+                            <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
                         </tr>
                         <tr>
                             <td colspan="4"><br></td>
@@ -143,13 +143,13 @@
                             <td style="text-align: right; padding-right: 0.5rem">a.</td>
                             <td>Oleh Pejabat</td>
                             <td>:</td>
-                            <td>{{ $data->pejabat_lama }}</td>
+                            <td>{{ $data->users->pejabat }}</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem">b.</td>
                             <td>Tanggal / Nomor</td>
                             <td>:</td>
-                            <td>{{ \Carbon\Carbon::parse($data->tanggal_gaji_lama)->translatedFormat('d F Y') }} / {{ $data->nomor_gaji_lama }}</td>
+                            <td>{{ \Carbon\Carbon::parse($data->tanggal_gaji_lama)->translatedFormat('d F Y') }} / {{ $data->users->nomor_gaji_lama }}</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">c.</td>
@@ -161,7 +161,7 @@
                             <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">d.</td>
                             <td>Masa kerja golongan pada tgl tersebut</td>
                             <td>:</td>
-                            <td>{{ $data->masa_kerja_gaji_lama }}</td>
+                            <td>{{ $data->users->categories->mkg }} Tahun</td>
                         </tr>
                         <tr>
                             <td colspan="4"><br></td>
@@ -178,19 +178,19 @@
                             <td style="text-align: right; padding-right: 0.5rem">6.</td>
                             <td>Gaji Pokok Baru</td>
                             <td>:</td>
-                            <td>Rp. {{ number_format($data->gaji_pokok_baru, 2, ',', '.') }}</td>
+                            <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem">7.</td>
                             <td>Berdasarkan Masa Kerja</td>
                             <td>:</td>
-                            <td>{{ $data->masa_kerja_gaji_baru }}</td>
+                            <td>{{ $data->categories->mkg }} Tahun</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem">8.</td>
                             <td>Dalam Golongan</td>
                             <td>:</td>
-                            <td>{{ $data->golongan }}</td>
+                            <td>{{ $data->categories->category . '/' . $data->categories->class }}</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem">9.</td>

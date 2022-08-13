@@ -32,56 +32,69 @@
 
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="text" class="form-control" name="name" required placeholder="Masukkan Nama Lengkap ..."/>
+                                <input type="text" class="form-control" name="name" placeholder="Masukkan Nama Lengkap ..." required/>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Masukkan Email ..."/>
+                                <input type="email" class="form-control" name="email" placeholder="Masukkan Email ..." required/>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Masukkan Password .."/>
+                                <input type="password" class="form-control" name="password" placeholder="Masukkan Password .." required/>
                             </div>
                             <div class="form-group">
                                 <label>NIP</label>
                                 <div>
-                                    <input data-parsley-type="number" type="text" name="nip"
-                                            class="form-control" required
-                                            placeholder="Masukkan NIP ..."/>
+                                    <input data-parsley-type="number" type="text" name="nip" class="form-control" placeholder="Masukkan NIP ..." required/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Pangkat</label>
-                                        <input type="text" class="form-control" name="pangkat" required placeholder="Masukkan Pangkat ..."/>
+                                        <input type="text" class="form-control" name="pangkat" placeholder="Masukkan Pangkat ..." required/>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Jabatan</label>
-                                        <input type="text" class="form-control" name="jabatan" required placeholder="Masukkan Jabatan ..."/>
+                                        <input type="text" class="form-control" name="jabatan" placeholder="Masukkan Jabatan ..." required/>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Kantor</label>
-                                <input type="text" class="form-control" name="kantor" required placeholder="Masukkan Kantor ..."/>
+                                <input type="text" class="form-control" name="kantor" placeholder="Masukkan Kantor ..." required/>
                             </div>
                             <div class="form-group">
-                                <label>Gaji Pokok</label>
-                                <div>
-                                    <input data-parsley-type="number" type="text" name="gaji_pokok"
-                                            class="form-control" required
-                                            placeholder="Masukkan Gaji Pokok ..."/>
+                                <label>Oleh Pejabat</label>
+                                <input type="text" class="form-control" name="pejabat" placeholder="Masukkan Nama Pejabat Surat Lama ..." required/>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Tanggal Surat</label>
+                                        <input type="date" class="form-control" name="tanggal_gaji_lama" placeholder="Masukkan Tanggal Surat Lama ..." required/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Nomor Surat</label>
+                                        <input type="text" class="form-control" name="nomor_gaji_lama" placeholder="Masukkan Nomor Surat Lama ..." required/>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Status</label>
-                                <select class="form-control select2" name="status">
-                                    <option>Select</option>
-                                    <option value="0">Tidak Dapat KGB</option>
-                                    <option value="1">Dapat KGB</option>
+                                <label>Berlakunya Gaji Lama</label>
+                                <input type="date" class="form-control" name="berlaku_gaji_lama" placeholder="Masukkan Berlaku Gaji Lama ..." required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Golongan / Gaji Pokok</label>
+                                <select class="form-control select2" name="id_category" required>
+                                    <option value="">Select</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category }}/{{ $category->class }} || Rp. {{ number_format($category->salary, 2, ',', '.') }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

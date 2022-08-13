@@ -15,14 +15,17 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('id_category')->nullable();
             $table->string('name');
             $table->string('nip')->nullable();
             $table->string('pangkat')->nullable();
             $table->string('jabatan')->nullable();
             $table->string('kantor')->nullable();
-            $table->string('gaji_pokok')->nullable();
-            $table->tinyInteger('status')->default(0)->comment('0 untuk Tidak Dapat KGB & 1 untuk Dapat KGB');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
+            $table->string('pejabat')->nullable();
+            $table->string('nomor_gaji_lama')->nullable();
+            $table->date('tanggal_gaji_lama')->nullable();
+            $table->date('berlaku_gaji_lama')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

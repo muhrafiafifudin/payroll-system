@@ -39,6 +39,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'id_category');
+    }
+
     public function kgb_data()
     {
         return $this->hasOne(KgbData::class);

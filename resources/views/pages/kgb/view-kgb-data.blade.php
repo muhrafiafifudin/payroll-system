@@ -37,51 +37,20 @@
                             </select>
                         </div>
 
-
-                        <br><br>
-                        <div class="form-group">
-                            <label>Oleh Pejabat</label>
-                            <input type="text" class="form-control" name="pejabat_lama" value="{{ $kgb_data->pejabat_lama }}" disabled />
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Tanggal Surat</label>
-                                    <input type="date" class="form-control" name="tanggal_gaji_lama" value="{{ $kgb_data->tanggal_gaji_lama }}" disabled />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nomor Surat</label>
-                                    <input type="text" class="form-control" name="nomor_gaji_lama" value="{{ $kgb_data->nomor_gaji_lama }}" disabled />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Berlakunya Gaji Lama</label>
-                            <input type="date" class="form-control" name="berlaku_gaji_lama" value="{{ $kgb_data->berlaku_gaji_lama }}" disabled />
-                        </div>
-                        <div class="form-group">
-                            <label>Masa Kerja Tanggal Tersebut</label>
-                            <input type="text" class="form-control" name="masa_kerja_gaji_lama" value="{{ $kgb_data->masa_kerja_gaji_lama }}" disabled />
-                        </div>
-
-
                         <br><br>
                         <div class="form-group">
                             <label>Gaji Pokok Baru</label>
                             <div>
-                                <input data-parsley-type="number" type="text"
-                                        class="form-control" value="{{ $kgb_data->gaji_pokok_baru }}" disabled />
+                                <input data-parsley-type="number" type="text" class="form-control" value="Rp. {{ number_format($kgb_data->categories->salary, 2, ',', '.') }}" disabled />
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Berdasarkan Masa Kerja</label>
-                            <input type="text" class="form-control" name="masa_kerja_gaji_baru" value="{{ $kgb_data->masa_kerja_gaji_baru }}" disabled />
+                            <input type="text" class="form-control" name="masa_kerja_gaji_baru" value="{{ $kgb_data->categories->mkg }} Tahun" disabled />
                         </div>
                         <div class="form-group">
                             <label>Dalam Golongan</label>
-                            <input type="text" class="form-control" name="golongan" value="{{ $kgb_data->golongan }}" disabled />
+                            <input type="text" class="form-control" name="golongan" value="{{ $kgb_data->categories->category }}/{{ $kgb_data->categories->class }}" disabled />
                         </div>
                         <div class="form-group">
                             <label>Mulai Tanggal</label>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 use Facade\FlareClient\View;
+use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -27,7 +28,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('pages.employee.form-employee-data');
+        $categories = Category::all();
+
+        return view('pages.employee.form-employee-data', compact('categories'));
     }
 
     /**
@@ -40,14 +43,17 @@ class EmployeeController extends Controller
     {
         $users = User::create([
             'name' => $request->input('name'),
+            'id_category' => $request->input('id_category'),
             'nip' => $request->input('nip'),
             'pangkat' => $request->input('pangkat'),
             'jabatan' => $request->input('jabatan'),
             'kantor' => $request->input('kantor'),
-            'gaji_pokok' => $request->input('gaji_pokok'),
-            'status' => $request->input('status'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
+            'pejabat' => $request->input('pejabat'),
+            'nomor_gaji_lama' => $request->input('nomor_gaji_lama'),
+            'tanggal_gaji_lama' => $request->input('tanggal_gaji_lama'),
+            'berlaku_gaji_lama' => $request->input('berlaku_gaji_lama'),
         ]);
 
         $users->assignRole('user');
@@ -78,8 +84,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $users = User::findOrFail($id);
+        $categories = Category::all();
 
-        return view('pages.employee.edit-employee-data', compact('users'));
+        return view('pages.employee.edit-employee-data', compact('users', 'categories'));
     }
 
     /**
