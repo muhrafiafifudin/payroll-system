@@ -67,7 +67,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Oleh Pejabat</label>
-                                <input type="text" class="form-control" name="pejabat_lama" value="{{ $users->pejabat_lama }}" required placeholder="Masukkan Nama Pejabat Surat Lama ..."/>
+                                <input type="text" class="form-control" name="pejabat" value="{{ $users->pejabat }}" required placeholder="Masukkan Nama Pejabat Surat Lama ..."/>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">

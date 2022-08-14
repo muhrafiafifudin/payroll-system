@@ -47,7 +47,6 @@
                                             <th>NIP</th>
                                             <th>Jabatan</th>
                                             <th>Kantor</th>
-                                            <th>Status</th>
                                             <th>Keterangan</th>
                                         </tr>
                                     </thead>
@@ -60,7 +59,6 @@
                                                 <td>{{ $user->nip }}</td>
                                                 <td>{{ $user->jabatan }}</td>
                                                 <td>{{ $user->kantor }}</td>
-                                                <td>{{ $user->status == 0 ? 'Tidak Dapat KGB' : 'Dapat KGB' }}</td>
                                                 <td>
                                                     <form action="{{ route('employee.destroy', $user->id) }}" method="POST">
                                                         @csrf
@@ -95,7 +93,6 @@
                                             <th>NIP</th>
                                             <th>Jabatan</th>
                                             <th>Kantor</th>
-                                            <th>Status</th>
                                             <th>Keterangan</th>
                                         </tr>
                                     </thead>
@@ -107,7 +104,6 @@
                                             <td>{{ Auth::user()->nip }}</td>
                                             <td>{{ Auth::user()->jabatan }}</td>
                                             <td>{{ Auth::user()->kantor }}</td>
-                                            <td>{{ Auth::user()->status == 0 ? 'Tidak Dapat KGB' : 'Dapat KGB' }}</td>
                                             <td>
                                                 <form action="{{ route('employee.destroy', Auth::user()->id) }}" method="POST">
                                                     @csrf

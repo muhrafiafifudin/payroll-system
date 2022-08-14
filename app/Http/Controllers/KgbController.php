@@ -82,7 +82,8 @@ class KgbController extends Controller
 
         return view('pages.kgb.edit-kgb-data', [
             'kgb_data' => $kgb_data,
-            'users' => User::all()
+            'users' => User::all(),
+            'categories' => Category::all()
         ]);
     }
 
