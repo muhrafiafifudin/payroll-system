@@ -21,7 +21,7 @@ class KgbController extends Controller
     public function index()
     {
         $kgb_data = KgbData::all();
-        $kgb_data_personal = KgbData::where('id_user', Auth::id());
+        $kgb_data_personal = KgbData::where('id_user', Auth::id())->get();
 
         return view('pages.kgb.kgb-data', compact('kgb_data', 'kgb_data_personal'));
     }

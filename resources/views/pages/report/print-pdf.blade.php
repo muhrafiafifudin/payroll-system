@@ -154,7 +154,7 @@
                         <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">d.</td>
                         <td>Masa kerja golongan pada tgl tersebut</td>
                         <td>:</td>
-                        <td>{{ $data->categories->mkg }} Tahun</td>
+                        <td>{{ $user->categories->mkg }} Tahun</td>
                     </tr>
                     <tr>
                         <td colspan="4"><br></td>

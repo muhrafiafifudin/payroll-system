@@ -93,7 +93,7 @@
                                 <select class="form-control select2" name="id_category" required>
                                     <option value="">Select</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->category }}/{{ $category->class }} || Rp. {{ number_format($category->salary, 2, ',', '.') }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->category }}/{{ $category->class }} || Rp. {{ number_format($category->salary, 2, ',', '.') }} || {{ $category->mkg }} Tahun</option>
                                     @endforeach
                                 </select>
                             </div>

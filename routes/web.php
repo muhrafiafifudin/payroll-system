@@ -24,7 +24,14 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     // Route Golongan
-    Route::resource('dashboard/category', CategoryController::class);
+    // Route::resource('dashboard/category', CategoryController::class);
+    Route::get('dashboard/category', 'App\Http\Controllers\CategoryController@index')->name('category.index');
+    Route::post('dashboard/category', 'App\Http\Controllers\CategoryController@store')->name('category.store')->middleware('role:admin');
+    Route::get('dashboard/category/create', 'App\Http\Controllers\CategoryController@create')->name('category.create')->middleware('role:admin');
+    Route::get('dashboard/category/{category}', 'App\Http\Controllers\CategoryController@show')->name('category.show');
+    Route::put('dashboard/category/{category}', 'App\Http\Controllers\CategoryController@update')->name('category.update')->middleware('role:admin');
+    Route::delete('dashboard/category/{category}', 'App\Http\Controllers\CategoryController@destroy')->name('category.destroy')->middleware('role:admin');
+    Route::get('dashboard/category/{category}/edit', 'App\Http\Controllers\CategoryController@edit')->name('category.edit')->middleware('role:admin');
     // Route Data Pegawai
     Route::get('dashboard/employee', 'App\Http\Controllers\EmployeeController@index')->name('employee.index');
     Route::post('dashboard/employee', 'App\Http\Controllers\EmployeeController@store')->name('employee.store')->middleware('role:admin');

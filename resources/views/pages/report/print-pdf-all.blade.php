@@ -126,7 +126,7 @@
                             <td style="text-align: right; padding-right: 0.5rem">5.</td>
                             <td>Gaji Pokok</td>
                             <td>:</td>
-                            <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
+                            <td>Rp. {{ number_format($data->users->categories->salary, 2, ',', '.') }}</td>
                         </tr>
                         <tr>
                             <td colspan="4"><br></td>
@@ -149,13 +149,13 @@
                             <td style="text-align: right; padding-right: 0.5rem">b.</td>
                             <td>Tanggal / Nomor</td>
                             <td>:</td>
-                            <td>{{ \Carbon\Carbon::parse($data->tanggal_gaji_lama)->translatedFormat('d F Y') }} / {{ $data->users->nomor_gaji_lama }}</td>
+                            <td>{{ \Carbon\Carbon::parse($data->users->tanggal_gaji_lama)->translatedFormat('d F Y') }} / {{ $data->users->nomor_gaji_lama }}</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">c.</td>
                             <td>Tgl mulai berlakunya gaji tersebut</td>
                             <td>:</td>
-                            <td>{{ \Carbon\Carbon::parse($data->berlaku_gaji_lama)->translatedFormat('d F Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($data->users->berlaku_gaji_lama)->translatedFormat('d F Y') }}</td>
                         </tr>
                         <tr>
                             <td style="text-align: right; padding-right: 0.5rem; vertical-align: top">d.</td>

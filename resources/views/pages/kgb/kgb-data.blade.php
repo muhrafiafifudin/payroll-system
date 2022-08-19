@@ -109,7 +109,7 @@
                                                 <td>{{ $data->users->name }}</td>
                                                 <td>Rp. {{ number_format($data->users->categories->salary, 2, ',', '.') }}</td>
                                                 <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
-                                                <td>{{ $data->golongan }}</td>
+                                                <td>{{ $data->categories->category }}/{{ $data->categories->class }}</td>
                                                 <td>{{ $data->berlaku_gaji_baru }}</td>
                                                 <td>
                                                     <a href="{{ route('kgb.show', $data->id) }}" class="btn btn-warning waves-effect waves-light">View</a>
