@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->date('berlaku_gaji_lama')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('type')->nullable()->default(0)->comment('0 for Not Process KGB & 1 for Process KGB');
             $table->rememberToken();
             $table->timestamps();
         });

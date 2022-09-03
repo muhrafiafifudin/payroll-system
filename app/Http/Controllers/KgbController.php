@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\KgbData;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -33,7 +34,7 @@ class KgbController extends Controller
      */
     public function create()
     {
-        $users = User::whereYear('berlaku_gaji_lama', Carbon::now()->subYears(2)->toDateTimeString())->get();
+        $users = User::where('type', 0)->whereYear('berlaku_gaji_lama', Carbon::now()->subYears(2)->toDateTimeString())->get();
         $categories = Category::all();
 
         return view('pages.kgb.form-kgb-data', compact('users', 'categories'));
@@ -47,8 +48,11 @@ class KgbController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $users = User::where('id', $request->id_user)->first();
+        $users->type = 1;
+        $users->update();
 
+        $data = $request->all();
         KgbData::create($data);
 
         return redirect()->route('kgb.index');
