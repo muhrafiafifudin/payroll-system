@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        @role('admin')
+                        @role('admin|audit')
                             <div class="row">
                                 <div class="col-lg-8">
                                     <h4 class="mt-0 header-title">Daftar Data Pegawai</h4>

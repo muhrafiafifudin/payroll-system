@@ -27,6 +27,11 @@
                         <i class="mdi mdi-clipboard-text"></i><span>Data KGB</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('classification.index') }}" class="waves-effect">
+                        <i class="mdi mdi-clipboard-outline"></i><span>Klasifikasi</span>
+                    </a>
+                </li>
             </ul>
             <!-- Left Menu End -->
         </div>

@@ -20,7 +20,7 @@
         </div>
         <!-- end row -->
 
-        @role('admin')
+        @role('admin|audit')
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">

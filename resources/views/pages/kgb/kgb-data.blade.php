@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        @role('admin')
+                        @role('admin|audit')
                             <div class="row">
                                 <div class="col-lg-8">
                                     <h4 class="mt-0 header-title">Daftar Data KGB</h4>
@@ -44,6 +44,11 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+
+                                            @role('audit')
+                                                <th>Cek</th>
+                                            @endrole
+
                                             <th>Nama</th>
                                             <th>Gaji Pokok</th>
                                             <th>Gaji Pokok Baru</th>
@@ -56,7 +61,14 @@
                                         @php $no=1 @endphp
                                         @foreach ($kgb_data as $data)
                                             <tr>
-                                                <th scope="row">{{ $no++ }}</th>
+                                                <td scope="row">{{ $no++ }}</td>
+
+                                                @role('audit')
+                                                    <td>
+                                                        <input type="checkbox">
+                                                    </td>
+                                                @endrole
+
                                                 <td>{{ $data->users->name }}</td>
                                                 <td>Rp. {{ number_format($data->users->categories->salary, 2, ',', '.') }}</td>
                                                 <td>Rp. {{ number_format($data->categories->salary, 2, ',', '.') }}</td>
